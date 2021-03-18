@@ -35,7 +35,7 @@ function Preview() {
         const uploadTask = storage.ref(`posts/${id}`)
         .putString(cameraImage,"data_url");
         uploadTask.on("state_changed", null, (error) => {
-            console.log(error);
+            console.log("error: ",error);
         }, () => {
             storage
             .ref('posts')

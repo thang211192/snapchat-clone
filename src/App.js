@@ -15,6 +15,7 @@ function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  
   useEffect(() => {
     auth.onAuthStateChanged((result) => {
       if(result) {
@@ -26,8 +27,11 @@ function App() {
       }else{
         dispatch(logout());
       }
+      return () => {
+        dispatch(logout());
+      }
     })
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="app">
